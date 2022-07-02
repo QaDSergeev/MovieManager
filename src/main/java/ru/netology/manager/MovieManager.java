@@ -1,47 +1,49 @@
 package ru.netology.manager;
 
+import javax.swing.*;
+
 public class MovieManager {
 
-    private String[] movies = new String[0];
+    private MovieData[] movies = new MovieData[0];
     private final int limit;
 
-    public MovieManager(){
+    public MovieManager() {
 
         limit = 10;
     }
 
-    public MovieManager(int limit){
+    public MovieManager(int limit) {
 
         this.limit = limit;
     }
 
-    public void addMovie(String movie){
+    public void addMovie(MovieData movie) {
 
-        String[] tmp = new String[movies.length + 1];
+        MovieData[] tmp = new MovieData[movies.length + 1];
 
-        for(int i=0; i< movies.length; i++){
+        for (int i = 0; i < movies.length; i++) {
 
             tmp[i] = movies[i];
         }
 
-        tmp[tmp.length-1] = movie;
+        tmp[tmp.length - 1] = movie;
         movies = tmp;
     }
 
-    public String[] findAll(){
+    public MovieData[] findAll() {
 
         return movies;
     }
 
-    public String[] findLast(){
+    public MovieData[] findLast() {
 
         int resultLength = Math.min(movies.length, limit);
 
-        String[] tmp = new String[resultLength];
+        MovieData[] tmp = new MovieData[resultLength];
 
-        for (int i=0; i < tmp.length; i++){
+        for (int i = 0; i < tmp.length; i++) {
 
-            tmp[i] = movies[movies.length-i-1];
+            tmp[i] = movies[movies.length - i - 1];
         }
 
         return tmp;
